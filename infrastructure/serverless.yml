@@ -1,0 +1,66 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: spotify-etl
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: ca-central-1
+  environment:
+    ENV: ${opt:stage, 'dev'}
+
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "secretsmanager:GetSecretValue"
+          Resource: "*"
+
+functions:
+  rawToStaging:
+    handler: handler_raw_to_staging.lambda_handler # Raw -> Staging
+    description: "Executa ETL do raw para staging"
+    timeout: 900  # 15 minutos
+    memorySize: 1024
+    events:
+      - schedule:
+          rate: rate(1 day)  # Standard
+          input:
+            execution_type: "scheduled"
+
+  stagingToAnalytics:
+    handler: handler_staging_to_analytics.lambda_handler # Staging -> Analytics
+    description: "Executa ETL do staging para analytics"
+    timeout: 900
+    memorySize: 1024
+    events:
+      - schedule:
+          rate: rate(1 day)
+          input:
+            execution_type: "scheduled"
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+    slim: true
