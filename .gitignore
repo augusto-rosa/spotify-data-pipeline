@@ -31,3 +31,5 @@ MANIFEST
 
 # Serverless directories
 .serverless
+.env
+.env
