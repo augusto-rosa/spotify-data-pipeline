@@ -1,6 +1,6 @@
 # 🎵 Spotify Data Pipeline Project
 
-This project implements a **modern serverless data pipeline** for processing Spotify music data extracted from Kaggle. The solution follows best practices in Data Engineering, using **Python and AWS services (S3, Lambda, EventBridge, Athena)**, along with **interactive data visualization in Power BI**.
+This project implements a **modern serverless data pipeline** for processing Spotify music data extracted from Kaggle. The solution follows best practices in Data Engineering, using **Python and AWS services (S3, Lambda, Secrets Manager, Glue, Athena)**, along with **interactive data visualization in Power BI**.
 
 ---
 
@@ -12,7 +12,8 @@ The main goal is to build a scalable and modular data pipeline to **extract, tra
 
 ## 🧭 Architecture Overview
 
-You can add a screenshot of your Architecture here once it's ready
+![Spotify_Architecture drawio](https://github.com/user-attachments/assets/2f813a03-9fae-4f21-949f-a1fd36431c79)
+
 
 ```text 
 [Data Source (Spotify - Kaggle)]
@@ -33,6 +34,9 @@ You can add a screenshot of your Architecture here once it's ready
 [S3 - Analytics Layer]
         |
         ▼
+[Glue - Data Catalog]
+        |
+        ▼
 [Athena]
         |
         ▼
@@ -48,7 +52,7 @@ AWS S3 – Layered data storage (Raw, Staging, Analytics)
 
 AWS Lambda (Serverless) – Data transformation and automation
 
-AWS EventBridge – (Optional) Workflow orchestration
+AWS Glue Data Catalog – Central metadata repository for data
 
 AWS Athena – SQL querying over data stored in S3
 
@@ -59,19 +63,22 @@ Power BI – Interactive data reporting and visualization
 🧱 Project Structure
 
 Spotify_Data_Engineer_Project/
-├── .env                         # Environment variables (not versioned)
-├── config/
-│   └── settings.py              # Project configurations
-├── etl/
-│   ├── spotify_etl_raw_to_staging.py
-│   ├── spotify_etl_staging_to_analytics.py
-│   └── modules/                 # Transformations
-│       ├── tracks_raw_to_staging.py
-│       ├── album_raw_to_staging.py
-│       └── artist_raw_to_staging.py
-├── scripts/
-│   ├── run_raw_to_staging.py    # Execute ETL spotify_etl_raw_to_staging
-│   └── run_staging_to_analytics.py # Execute ETL spotify_etl_staging_to_analytics
+└── src/
+    ├── .env                                  # Environment variables (not versioned)
+    ├── config/
+    │   └── settings.py                       # Project configurations
+    ├── etl/
+    │   ├── spotify_etl_raw_to_staging.py
+    │   ├── spotify_etl_staging_to_analytics.py
+    │   └── modules/                          # Transformations
+    │       ├── tracks_raw_to_staging.py
+    │       ├── album_raw_to_staging.py
+    │       └── artist_raw_to_staging.py
+    ├── scripts/
+    │   ├── run_raw_to_staging.py             # Execute ETL spotify_etl_raw_to_staging
+    │   └── run_staging_to_analytics.py       # Execute ETL spotify_etl_staging_to_analytics
+    ├── handler_raw_to_staging
+    ├── handler_staging_to_analytics
 
 🔁 ETL Flow
 1. Extraction
@@ -85,7 +92,10 @@ A second transformation stage handles the conversion from Staging to Analytics L
 3. Loading
 Processed data is stored in the Analytics Layer (S3) for querying and visualization.
 
-4. Query & Visualization
+4. Cataloging (Glue Data Catalog)
+Metadata about the processed data in the Analytics Layer (S3) is defined in the AWS Glue Data Catalog. This involves creating a table that points to the data's location and describes its schema, enabling services like Athena to understand and query the data.
+
+5. Query & Visualization
 Athena enables SQL querying on top of S3-stored data.
 
 Power BI connects to Athena for dynamic dashboard creation.
