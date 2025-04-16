@@ -37,10 +37,17 @@ provider:
 
 functions:
   rawToStaging:
-    handler: handler_raw_to_staging.lambda_handler # Raw -> Staging
+    handler: src/handler_raw_to_staging.lambda_handler # Raw -> Staging
     description: "Executa ETL do raw para staging"
     timeout: 900  # 15 minutos
     memorySize: 1024
+    package:
+      include:
+        - src/handler_raw_to_staging.py
+        - src/scripts/**
+        - src/etl/**
+        - src/config/**
+        - src/.env
     events:
       - schedule:
           rate: rate(1 day)  # Standard
@@ -48,10 +55,17 @@ functions:
             execution_type: "scheduled"
 
   stagingToAnalytics:
-    handler: handler_staging_to_analytics.lambda_handler # Staging -> Analytics
+    handler: src/handler_staging_to_analytics.lambda_handler # Staging -> Analytics
     description: "Executa ETL do staging para analytics"
     timeout: 900
     memorySize: 1024
+    package:
+      include:
+        - src/handler_staging_to_analytics.py
+        - src/scripts/**
+        - src/etl/**
+        - src/config/**
+        - src/.env
     events:
       - schedule:
           rate: rate(1 day)
@@ -62,5 +76,5 @@ plugins:
 
 custom:
   pythonRequirements:
-    dockerizePip: non-linux
+    dockerizePip: true
     slim: true

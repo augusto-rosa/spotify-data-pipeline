@@ -3,7 +3,8 @@ import sys
 from datetime import datetime
 
 # Adds the parent directory to the path to import existing modules
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 
 def lambda_handler(event, context):
     print(f"Starting Raw to Staging ETL - {datetime.now()}")

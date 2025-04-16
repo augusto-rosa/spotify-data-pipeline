@@ -1,0 +1,6 @@
+boto3==1.37.23
+pyarrow==17.0.0
+python-dotenv==1.0.1
+pandas==2.2.2
+numpy==1.26.4
+spotipy==2.22.1

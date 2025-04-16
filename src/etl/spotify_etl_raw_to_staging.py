@@ -5,6 +5,7 @@ import re
 import pyarrow as pa
 import pyarrow.parquet as pq
 from config import settings
+from config.settings import secrets
 from .modules import tracks_raw_to_staging, album_raw_to_staging, artist_raw_to_staging
 
 # Main function to orchestrate the ETL from raw to staging
@@ -16,7 +17,11 @@ def run_etl_raw_to_staging():
   """
    
   # ** Client S3 **
-  s3_client = boto3.client('s3')
+  s3_client = boto3.client(
+    "s3",
+    aws_access_key_id=secrets["AWS_ACCESS_KEY_ID"],
+    aws_secret_access_key=secrets["AWS_SECRET_ACCESS_KEY"]
+)
 
   # Mapping of file keywords to processing functions
   list_of_modules = {

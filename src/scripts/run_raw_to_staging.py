@@ -13,6 +13,7 @@ Dependencies:
 """
 import sys
 from pathlib import Path
+from etl import spotify_etl_raw_to_staging
 
 # Set project root directory (two levels up from this file)
 # Ensures consistent imports regardless of execution location
@@ -22,11 +23,9 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
 # Main ETL function import (absolute import after modifying sys.path)
-from etl import spotify_etl_raw_to_staging
 
-"""
-    Entry point when script is executed directly.
-    Prevents automatic execution when imported as a module.
-"""
-if __name__ == "__main__":
+def main():
     spotify_etl_raw_to_staging.run_etl_raw_to_staging()
+
+if __name__ == "__main__":
+    main()

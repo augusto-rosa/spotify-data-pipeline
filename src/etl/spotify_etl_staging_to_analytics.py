@@ -6,6 +6,7 @@ import os
 import pyarrow as pa
 import pyarrow.parquet as pq
 from config import settings
+from config.settings import secrets
 
 # Main function to perform ETL from staging to analytics
 def run_etl_staging_to_analytics():
@@ -15,7 +16,11 @@ def run_etl_staging_to_analytics():
         an analytics-ready dataset, and uploads the final Parquet file to the analytics path in S3.
         """
         # Initialize S3 client
-        s3_client = boto3.client('s3')
+        s3_client = boto3.client(
+           "s3",
+            aws_access_key_id=secrets["AWS_ACCESS_KEY_ID"],
+            aws_secret_access_key=secrets["AWS_SECRET_ACCESS_KEY"]
+        )
 
         # Dictionary to store loaded DataFrames
         dataframes = {}

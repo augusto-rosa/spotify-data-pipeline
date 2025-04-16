@@ -13,7 +13,7 @@ Dependencies:
 """
 import sys
 from pathlib import Path
-
+from etl import spotify_etl_staging_to_analytics
 # Establish absolute project root path (two levels up from this file)
 # Critical for consistent imports across different execution contexts
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -22,13 +22,8 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
 # Main ETL function import (absolute import after modifying sys.path)
-from etl import spotify_etl_staging_to_analytics
+def main():
+    spotify_etl_staging_to_analytics.run_etl_staging_to_analytics()
 
 if __name__ == "__main__":
-
-    """
-    Execution guard ensures this only runs when:
-    - Script is called directly (not when imported)
-    - Required by any orchestration tools.
-    """
-    spotify_etl_staging_to_analytics.run_etl_staging_to_analytics()
+    main()
