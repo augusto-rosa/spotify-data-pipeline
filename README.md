@@ -102,6 +102,6 @@ Power BI connects to Athena for dynamic dashboard creation.
 
 📊 Data Visualization (Power BI)
 
-![Untitled Diagram drawio](https://github.com/user-attachments/assets/6c40e048-3d5c-4cfc-a484-80f8f70f32e2)
+![Screenshot do Dashboard Spotify](src/architecture/spotify_dashboard_screenshot.png)
 
 
