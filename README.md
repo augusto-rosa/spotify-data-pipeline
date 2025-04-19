@@ -99,10 +99,8 @@ Metadata about the processed data in the Analytics Layer (S3) is defined in the 
 Athena enables SQL querying on top of S3-stored data.
 
 Power BI connects to Athena for dynamic dashboard creation.
-
+```
 📊 Data Visualization (Power BI)
 
-![Screenshot do Dashboard Spotify](https://github.com/user-attachments/src/architecture/spotify_dashboard_screenshot.png)
-![Spotify_Architecture drawio](https://github.com/user-attachments/assets/2f813a03-9fae-4f21-949f-a1fd36431c79)
-![Untitled Diagram drawio](https://github.com/user-attachments/assets/0d5a9767-73e5-4705-8986-1acf27d1de16)
+![spotify_dashboard_screenshot](https://github.com/user-attachments/assets/31efd927-78b3-47d1-a069-3b67a203db15)
 
