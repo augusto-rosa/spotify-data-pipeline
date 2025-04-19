@@ -101,6 +101,7 @@ Athena enables SQL querying on top of S3-stored data.
 Power BI connects to Athena for dynamic dashboard creation.
 
 📊 Data Visualization (Power BI)
-![spotify_dashboard_screenshot](https://github.com/user-attachments/assets/f4207650-f980-41c1-840a-c12555834c5f)
+
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/6c40e048-3d5c-4cfc-a484-80f8f70f32e2)
 
 
