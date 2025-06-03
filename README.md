@@ -60,7 +60,7 @@ AWS CLI – AWS resource management from terminal
 
 Power BI – Interactive data reporting and visualization
 
-## 🧱 Project Structure
+🧱 Project Structure
 
 Spotify_Data_Engineer_Project/
 └── src/
@@ -80,7 +80,7 @@ Spotify_Data_Engineer_Project/
     ├── handler_raw_to_staging
     ├── handler_staging_to_analytics
 
-## 🔁 ETL Flow
+🔁 ETL Flow
 1. Extraction
 Data is manually downloaded from Kaggle and uploaded to the Raw Layer (S3).
 
@@ -105,19 +105,19 @@ Power BI connects to Athena for dynamic dashboard creation.
 ![spotify_dashboard](https://github.com/user-attachments/assets/53b1b5a3-3b65-44a6-81df-937d1d7bb162)
 
 ## ✅ Conclusion and Learnings
-This project presented the implementation of a modern data pipeline using Spotify dataset from Kaggle as the data source. The pipeline was developed with a focus on cloud-based tools and services to automate the process of storing, cataloging, querying, and visualizing data.
+This project presented the implementation of a modern data pipeline using **Spotify dataset from Kaggle** as the data source. The pipeline was developed with a focus on cloud-based tools and services to automate the process of storing, cataloging, querying, and visualizing data.
 
 Throughout the project, I had the opportunity to:
 
-Work with AWS services such as S3, Lambda Functions, Glue Data Catalog, and Athena to build a fully serverless pipeline.
+Work with **AWS services** such as **S3**, **Lambda Function**s, **Glue Data Catalog**, and **Athena** to build a fully serverless pipeline.
 
-Automate data ingestion and processing using Python and AWS Lambda, reducing manual intervention.
+Automate data ingestion and processing using **Python** and **AWS Lambda**, reducing manual intervention.
 
 Organize and register the dataset using AWS Glue, enabling easy schema discovery and structured querying.
 
-Analyze the dataset efficiently with Athena using standard SQL.
+Analyze the dataset efficiently with **Athena** using standard SQL.
 
-Create a Power BI dashboard to explore insights about music trends, popularity, and track characteristics.
+Create a **Power BI dashboard** to explore insights about music trends, popularity, and track characteristics.
 
-This project strengthened my knowledge of cloud data engineering, focusing on building scalable, cost-effective, and automated pipelines using the AWS ecosystem.
+This project strengthened my knowledge of **cloud data engineering**, focusing on building scalable, cost-effective, and automated pipelines using the AWS ecosystem.
 
