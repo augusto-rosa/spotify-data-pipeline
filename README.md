@@ -41,8 +41,9 @@ The main goal is to build a scalable and modular data pipeline to **extract, tra
         |
         ▼
 [Power BI]
+```
 
-⚙️ Technologies Used
+## ⚙️ Technologies Used
 
 Kaggle – Spotify dataset source
 
@@ -60,7 +61,7 @@ AWS CLI – AWS resource management from terminal
 
 Power BI – Interactive data reporting and visualization
 
-🧱 Project Structure
+## 🧱 Project Structure
 
 Spotify_Data_Engineer_Project/
 └── src/
@@ -80,7 +81,7 @@ Spotify_Data_Engineer_Project/
     ├── handler_raw_to_staging
     ├── handler_staging_to_analytics
 
-🔁 ETL Flow
+## 🔁 ETL Flow
 1. Extraction
 Data is manually downloaded from Kaggle and uploaded to the Raw Layer (S3).
 
@@ -99,8 +100,8 @@ Metadata about the processed data in the Analytics Layer (S3) is defined in the 
 Athena enables SQL querying on top of S3-stored data.
 
 Power BI connects to Athena for dynamic dashboard creation.
-```
-📊 Data Visualization (Power BI)
+
+## 📊 Data Visualization (Power BI)
 
 ![spotify_dashboard](https://github.com/user-attachments/assets/53b1b5a3-3b65-44a6-81df-937d1d7bb162)
 
