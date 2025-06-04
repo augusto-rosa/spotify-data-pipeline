@@ -43,6 +43,14 @@ The main goal is to build a scalable and modular data pipeline to **extract, tra
 [Power BI]
 ```
 
+## 🔧 Why I Built This Project?
+
+I built this project to deepen my hands-on experience with AWS cloud services and Python, focusing on building scalable and automated data pipelines. As an **AWS-certified** professional, I wanted to reinforce my understanding of services like Lambda, S3, Glue, Athena, and EventBridge by implementing a production-like data pipeline architecture.  
+
+Python was chosen as the core language to manage data transformation and orchestration logic due to its flexibility and rich ecosystem for data engineering.  
+
+This project simulates real-world data engineering challenges such as orchestrating data extraction jobs, transforming semi-structured data, and making it queryable through Athena. It reflects common scenarios I encounter in my current role and serves as a practical environment to apply and test cloud-based design patterns and automation techniques.
+
 ## ⚙️ Technologies Used
 
 - **Kaggle** – Spotify dataset source
