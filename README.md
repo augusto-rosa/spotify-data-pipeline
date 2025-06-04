@@ -109,11 +109,11 @@ This project presented the implementation of a modern data pipeline using **Spot
 
 Throughout the project, I had the opportunity to:
 
-Work with **AWS services** such as **S3**, **Lambda Function**s, **Glue Data Catalog**, and **Athena** to build a fully serverless pipeline.
+Work with **AWS services** such as **S3**, **Lambda Function**s, **Glue**, and **Athena** to build a fully serverless pipeline.
 
 Automate data ingestion and processing using **Python** and **AWS Lambda**, reducing manual intervention.
 
-Organize and register the dataset using AWS Glue, enabling easy schema discovery and structured querying.
+Organize and register the dataset using **AWS Glue**, enabling easy schema discovery and structured querying.
 
 Analyze the dataset efficiently with **Athena** using standard SQL.
 
