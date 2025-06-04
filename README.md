@@ -14,7 +14,7 @@ The main goal is to build a scalable and modular data pipeline to **extract, tra
 
 ![Spotify_Architecture drawio](https://github.com/user-attachments/assets/2f813a03-9fae-4f21-949f-a1fd36431c79)
 
-## 🧪 Pipeline Overview
+## 🛰️ Pipeline Overview
 ``` 
 [Data Source (Spotify - Kaggle)]
         |
